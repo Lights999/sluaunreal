@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
 // See the License for the specific language governing permissions and limitations under the License.
 
-#include "SlateColorBrush.h"
+#include "SlateCore/Public/Brushes/SlateColorBrush.h"
 #include "slua_profile_inspector.h"
 #include "slua_profile.h"
 
