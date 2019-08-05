@@ -15,7 +15,6 @@ namespace NS_SLUA
         void Release();
 
     private:
-        UFUNCTION()
         void LuaStateInitCallback();
 
         // create global state, freed on app exit

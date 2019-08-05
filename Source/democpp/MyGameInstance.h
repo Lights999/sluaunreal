@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "slua.h"
 #include "Engine/GameInstance.h"
+#include "LuaStateInitializer.h"
 #include "MyGameInstance.generated.h"
 
 /**
@@ -23,9 +24,5 @@ public:
 	/** virtual function to allow custom GameInstances an opportunity to do cleanup when shutting down */
 	virtual void Shutdown() override;
 
-	UFUNCTION()
-	void LuaStateInitCallback();
-
-	// create global state, freed on app exit
-	NS_SLUA::LuaState state;
+    NS_SLUA::LuaStateInitializer stateInit;
 };

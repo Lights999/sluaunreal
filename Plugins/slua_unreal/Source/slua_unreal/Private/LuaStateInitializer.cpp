@@ -38,11 +38,9 @@ namespace NS_SLUA
     {
         state.onInitEvent.AddLambda([this]()
         {
-            NS_SLUA::lua_State *L = state.getLuaState();
-            lua_pushcfunction(L, PrintLog);
-            lua_setglobal(L, "PrintLog");
+            this->LuaStateInitCallback();
         });
-        //state.onInitEvent.AddUObject(this, &LuaStateInitializer::LuaStateInitCallback);
+
         state.init();
 
         state.setLoadFileDelegate([](const char* fn, uint32& len, FString& filepath)->uint8* {
@@ -75,12 +73,12 @@ namespace NS_SLUA
         state.close();
     }
 
-    //void LuaStateInitializer::LuaStateInitCallback()
-    //{
-    //    NS_SLUA::lua_State *L = state.getLuaState();
-    //    lua_pushcfunction(L, PrintLog);
-    //    lua_setglobal(L, "PrintLog");
-    //}
+    void LuaStateInitializer::LuaStateInitCallback()
+    {
+        NS_SLUA::lua_State *L = state.getLuaState();
+        lua_pushcfunction(L, PrintLog);
+        lua_setglobal(L, "PrintLog");
+    }
 }
 
 
