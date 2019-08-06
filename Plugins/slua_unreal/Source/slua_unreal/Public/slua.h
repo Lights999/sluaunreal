@@ -17,6 +17,7 @@
 #include "SLuaUtil.h"
 #include "LuaObject.h"
 #include "LuaState.h"
+#include "LuaStateInitializer.h"
 #include "LuaVar.h"
 #include "LuaArray.h"
 #include "LuaMap.h"
