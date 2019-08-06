@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "slua.h"
 #include "Engine/GameInstance.h"
-#include "LuaStateInitializer.h"
 #include "MyGameInstance.generated.h"
 
 /**
