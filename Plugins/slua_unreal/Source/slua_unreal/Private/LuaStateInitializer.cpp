@@ -43,16 +43,21 @@ namespace NS_SLUA
 
         state.init();
 
+        /*TODO: zhang-yang
+        * Lua目录方案1：替换为函数模板,从捕获列表传入Lua根目录 
+        * Lua目录方案2：从资源管理器获取Lua的根目录
+        */
         state.setLoadFileDelegate([](const char* fn, uint32& len, FString& filepath)->uint8* {
 
             IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
-            //TODO:
+            //TODO:从资源管理器动态获取正确的目录 zhang-yang
             FString path = FPaths::ProjectContentDir();
             FString filename = UTF8_TO_TCHAR(fn);
-            FString fRootName = UTF8_TO_TCHAR("Lua");//TODO: 从资源管理器获取Lua的根目录 zhang-yang
+            FString fRootName = UTF8_TO_TCHAR("Lua");//Lua的根目录 zhang-yang
             path /= fRootName;
             path /= filename.Replace(TEXT("."), TEXT("/"));
 
+            // 兼容.lua和.luac两种后缀
             TArray<FString> luaExts = { UTF8_TO_TCHAR(".lua"), UTF8_TO_TCHAR(".luac") };
             for (auto& it : luaExts) {
                 auto fullPath = path + *it;
