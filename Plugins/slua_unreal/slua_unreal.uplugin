@@ -17,12 +17,14 @@
     {
       "Name": "slua_unreal",
       "Type": "Runtime",
-      "LoadingPhase": "PreLoadingScreen"
+      "LoadingPhase": "PreLoadingScreen",
+      "WhitelistPlatforms":["Win64","Win32","Android"]
     },
     {
       "Name": "slua_profile",
       "Type": "Editor",
-      "LoadingPhase": "PreDefault"
+      "LoadingPhase": "PreDefault",
+	  "WhitelistPlatforms":["Win64","Win32"]
     }
 	]
 }
